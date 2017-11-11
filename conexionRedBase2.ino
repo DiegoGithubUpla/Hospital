@@ -55,24 +55,21 @@ do{
 }while(conectaBD);
   
 }
-
+int i;
 void loop(){
       String datos="chipid=123&temperatura=123";
 //////////////////////////////////BORRAME//////////////////////////////////
-
-        client.print(String("POST ") + strurl + " HTTP/1.1" + "\r\n" + 
+ 
+ for(i=0;i<5;i++){
+  client.print(String("POST ") + strurl + " HTTP/1.1" + "\r\n" + 
                "Host: " + strhost + "\r\n" +
                "Accept: */*" + "*\r\n" +
                "Content-Length: " + datos.length() + "\r\n" +
                "Content-Type: application/x-www-form-urlencoded" + "\r\n" +
                "\r\n" + datos);
-        datos="chipid=12&temperatura=12";     
-        client.print(String("POST ") + strurl + " HTTP/1.1" + "\r\n" + 
-               "Host: " + strhost + "\r\n" +
-               "Accept: */*" + "*\r\n" +
-               "Content-Length: " + datos.length() + "\r\n" +
-               "Content-Type: application/x-www-form-urlencoded" + "\r\n" +
-               "\r\n" + datos);                        
+        datos="chipid=12&temperatura=12"; 
+ }
+                             
                
           delay(10);             
           
